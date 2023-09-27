@@ -1,13 +1,22 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'my-component',
+  standalone: true,
+  template: ``,
+})
+export class MyComponent {
+  @Input() input = '';
+}
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  imports: [MyComponent],
+  template: `
+    <my-component [input]="name"></my-component>
+  `,
 })
 export class AppComponent {
-  title = 'ngnull';
+  name: string | null = 'Angular';
 }
